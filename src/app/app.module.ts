@@ -1,20 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
-
-import { AppComponent } from './app.component';
-import { AboutComponent } from './component/about/about.component';
-
+import {appRoutes} from './app.router';
+import {AppComponent} from './app.component';
+import {AboutComponent} from './component/about/about.component';
+import {HomeComponent} from './component/home/home.component';
+import {HomeService} from './component/home/home.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true}
+    )
   ],
-  providers: [],
+  providers: [HomeService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
