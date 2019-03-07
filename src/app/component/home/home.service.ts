@@ -12,14 +12,24 @@ export class HomeService {
 
   constructor(private http: HttpClient) {}
 
-  getDataFromApi(): Observable<any[]> {
+  getDataFromApi(): Observable<any> {
+    return this.http.get("https://jsonplaceholder.typicode.com/todos/").pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  getData() {
     return this.http
-      .get<any[]>("https://jsonplaceholder.typicode.com/todos/")
-      .pipe(
-        tap(responseData => {
-          of(responseData);
-        }),
-        catchError(error => of([]))
-      );
+      .get("https://jsonplaceholder.typicode.com/todos/")
+      .toPromise()
+      .then(response => {
+        console.log("aaaaaa");
+        return response;
+      })
+      .then(response => {
+        console.log("bbbbb");
+      });
   }
 }

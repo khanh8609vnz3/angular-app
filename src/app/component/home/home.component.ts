@@ -9,7 +9,8 @@ import { HomeService } from "./home.service";
 export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService) {}
 
-  listData: any[];
+  listData: any;
+  email: "aaaa";
 
   ngOnInit() {
     this.getData();
@@ -19,5 +20,11 @@ export class HomeComponent implements OnInit {
     this.homeService.getDataFromApi().subscribe(newData => {
       this.listData = newData;
     });
+
+    // this.listData = this.homeService.getData();
+  }
+
+  onSubmit(form) {
+    console.log(form);
   }
 }

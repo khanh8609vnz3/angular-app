@@ -1,9 +1,20 @@
 <div>
-  <ul>
+  <!-- <ul>
     <li *ngFor="let data of listData">
       <div>Title: {{data.title}}</div>
       <div>User id: {{data.userId}}</div>
       <div>Status: {{data.completed}}</div>
     </li>
-  </ul>
+  </ul> -->
+
+  <form (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
+    <button>Submit</button>
+    <div>
+      <input type="text" name="email" #txtEmail="ngModel" ngModel required>
+      <span *ngIf="txtEmail?.touched && txtEmail?.errors?.required">Nhap email de ban</span>
+    </div>
+    <div>
+      <input type="text" name="userName" ngModel>
+    </div>
+  </form>
 </div>

@@ -7,6 +7,9 @@
     <a routerLink="/home">Home</a>
     <a routerLink="/about">About</a>
   </nav>
+  <div *ngIf="isLoading">
+    Loading....
+  </div>
   <div class="test">
     <router-outlet></router-outlet>
   </div>
