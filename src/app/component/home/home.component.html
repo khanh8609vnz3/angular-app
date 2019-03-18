@@ -7,14 +7,14 @@
     </li>
   </ul> -->
 
-  <form (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
-    <button>Submit</button>
+  <form class="form" (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
     <div>
-      <input type="text" name="email" #txtEmail="ngModel" ngModel required>
+      <input class="form-control" type="text" name="email" #txtEmail="ngModel" ngModel required>
       <span *ngIf="txtEmail?.touched && txtEmail?.errors?.required">Nhap email de ban</span>
     </div>
     <div>
-      <input type="text" name="userName" ngModel>
+      <input class="form-control" type="text" name="userName" ngModel>
     </div>
+    <input name="" id="" class="btn btn-primary" type="submit" value="Submit">
   </form>
 </div>
