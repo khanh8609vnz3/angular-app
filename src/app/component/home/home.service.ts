@@ -7,14 +7,14 @@ import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class HomeService {
-  listData: any[];
-  apiUrl: "https://jsonplaceholder.typicode.com/todos/";
-
   constructor(private http: HttpClient) {}
 
+  listData: any[] = [];
+  apiUrl: string = "https://jsonplaceholder.typicode.com/todos/";
+
   getDataFromApi(): Observable<any> {
-    return this.http.get("https://jsonplaceholder.typicode.com/todos/").pipe(
-      map((response: any) => {
+    return this.http.get(this.apiUrl).pipe(
+      tap((response: any) => {
         return response;
       })
     );
@@ -22,7 +22,7 @@ export class HomeService {
 
   getData() {
     return this.http
-      .get("https://jsonplaceholder.typicode.com/todos/")
+      .get(this.apiUrl)
       .toPromise()
       .then(response => {
         console.log("aaaaaa");

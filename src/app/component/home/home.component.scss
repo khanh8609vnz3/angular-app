@@ -3,4 +3,15 @@
   padding: 15px;
   max-width: 500px;
   margin: auto;
+
+  .ng-valid[required],
+  .ng-valid.required {
+    border: 2px solid lightgreen;
+  }
+
+  
+}
+
+.ng-invalid:not(form) {
+  border: 2px solid red;
 }

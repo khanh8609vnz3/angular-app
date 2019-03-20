@@ -1,20 +1,23 @@
 <div>
-  <!-- <ul>
+  <form class="form form-group" (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
+    <div>
+      <label for="email">Email</label>
+      <input class="form-control" type="text" name="email" #state #txtEmail="ngModel" [(ngModel)]="email" required>
+      <p>Class name: {{state.className}}</p>
+      <p class="alert alert-danger" [hidden]="txtEmail.valid || txtEmail.pristine">Nhap email de ban</p>
+    </div>
+    <div>
+      <label for="userName">UserName</label>
+      <input class="form-control" type="text" name="userName" ngModel>
+    </div>
+    <input name="" id="" class="btn btn-primary" type="button" value="Reset" (click)="formSignIn.reset()">
+    <input name="" id="" class="btn btn-success" type="submit" value="Submit" [disabled]="formSignIn.invalid">
+  </form>
+  <ol>
     <li *ngFor="let data of listData">
       <div>Title: {{data.title}}</div>
       <div>User id: {{data.userId}}</div>
       <div>Status: {{data.completed}}</div>
     </li>
-  </ul> -->
-
-  <form class="form" (ngSubmit)="onSubmit(formSignIn);" #formSignIn="ngForm">
-    <div>
-      <input class="form-control" type="text" name="email" #txtEmail="ngModel" ngModel required>
-      <span *ngIf="txtEmail?.touched && txtEmail?.errors?.required">Nhap email de ban</span>
-    </div>
-    <div>
-      <input class="form-control" type="text" name="userName" ngModel>
-    </div>
-    <input name="" id="" class="btn btn-primary" type="submit" value="Submit">
-  </form>
+  </ol>
 </div>

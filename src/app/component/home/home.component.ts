@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService) {}
 
   listData: any;
-  email: "aaaa";
+  email = "";
 
   ngOnInit() {
     this.getData();
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     // this.listData = this.homeService.getData();
   }
 
-  onSubmit(form) {
+  onSubmit(form: any) {
     console.log(form);
   }
 }
