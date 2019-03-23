@@ -9,9 +9,11 @@ import {AppComponent} from './app.component';
 import {AboutComponent} from './pages/about/about.component';
 import {HomeComponent} from './pages/home/home.component';
 import {HomeService} from './pages/home/home.service';
+import {MenuBarComponent} from './components/layout/menu-bar/menu-bar.component';
+import { HeaderComponent } from './components/layout/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, HomeComponent],
+  declarations: [AppComponent, AboutComponent, HomeComponent, MenuBarComponent, HeaderComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
